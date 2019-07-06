@@ -79,12 +79,12 @@ for i in range(len(article_list)):
 
 
 #Save results temporarly:
-with open('article_sent2', 'wb') as g:
+with open('article_sent', 'wb') as g:
         pickle.dump(article_sent, g)
 
 
 #Load results from temporarly storage:
-with open('article_sent2', 'rb') as g:
+with open('article_sent', 'rb') as g:
     article_sent = pickle.load(g)
 
 
@@ -133,7 +133,7 @@ df_sent = df.set_index('Date').resample('W').mean()
 
 
 #Save dataframe in csv file:
-df_sent.to_csv("Pred_Sentiment2.csv")
+df_sent.to_csv("Pred_Sentiment.csv")
 
 
 ###Graphical illustraten of sentiment results:
