@@ -247,6 +247,8 @@ history_SMOTE = model.fit(X_train_res,y_train_res,epochs = EPOCHS,callbacks = ca
 #### GloVe Wordembeddings ##
 ############################
 
+#The file "glove.6B.100d.txt" can be downloaded at : https://nlp.stanford.edu/projects/glove/
+
 #Pretrained wordembeddings:
 embeddings_index = {}
 f = open('glove.6B.100d.txt',mode = "r") #encoding = "UTF-8"
