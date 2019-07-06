@@ -31,7 +31,6 @@ from keras.layers import Dense, Embedding, LSTM, SpatialDropout1D, Dropout, Flat
 from keras.models import load_model
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
-#from sklearn.metrics import precision_recall_fscore_support as score
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from keras.utils.np_utils import to_categorical
 from sklearn.utils import class_weight
