@@ -330,17 +330,3 @@ def res(a, metric_name, b):
 model = load_model(filepath_a,custom_objects={"precision": precision, "recall":recall})
 res(model, 'loss', 'No_SMOTE_AllagreeBS64_04_02_02')
 res(model, 'acc','SMOTE')
-
-########################################################################################################################
-
-
-#Graphical distribution of classes in dataset malo:
-x = ["neutral","posititve","negative"]
-y_pos = np.arange(len(x))
-
-with plt.style.context('ggplot'):
-     plt.bar(y_pos ,height = data["sentiment"].value_counts(),color=(0.2, 0.4, 0.6, 0.6)) #bins = 30
-     plt.xticks(y_pos, x)
-     plt.gca().set(title='Class distribution') # ylabel='Frequency', xlabel='Class'
-     plt.savefig("Class_distribution.png",bbox_inches='tight')
-     plt.close()
