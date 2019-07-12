@@ -28,7 +28,7 @@ driver.get(url)
 
 html = driver.page_source.encode('utf-8')
 page_num = 0
-while page_num < 1500:   #Number of times load_more button is clicked
+while page_num < 500:   #Number of times load_more button is clicked
     article = driver.find_element_by_xpath('//*[@id="load-more-stories"]/button')
     #Execute_script method needed as load more button is not visible at all times.
     driver.execute_script('arguments[0].click();', article)
