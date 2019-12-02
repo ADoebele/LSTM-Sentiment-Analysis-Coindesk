@@ -88,7 +88,7 @@ maxfreq = n.max()
 plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
 
 
-#Clean the data(deep learning should handle most of the rest though)
+#Clean the data(LSTM can handle unstructured data)
 data['text'] = data['text'].apply(lambda x: x.lower())
 data['text'] = data['text'].apply((lambda x: re.sub('[^a-zA-z\s]', '', x)))#0-9
 
