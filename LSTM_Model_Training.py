@@ -17,7 +17,7 @@ import pandas as pd
 import seaborn as sns
 import collections
 import matplotlib
-matplotlib.use('PS')
+#matplotlib.use('PS')
 import matplotlib.pyplot as plt
 from matplotlib import style as style
 import pickle
@@ -41,30 +41,27 @@ import re
 
 
 ###Read in the data:
-##Working with txt file:
+##txt files:
 
 #data = pd.read_table("Training_50agree.txt",encoding = "ISO-8859-1",header = None)
 #data.rename(columns={0:"text"},inplace = True)
 
-# Extract sentiment and put into new column
+# Extract sentiment into new column
 #data = data["text"].str.rsplit("@", expand = True) #only necessary for the default txt file
 #data.columns = ["text", "sentiment"]
 #save new file as csv
 #data.to_csv("Training_50agree.csv",encoding = "ISO-8859-1")#Training_allagree_random.csv
 
 
-#Read in the data(make sure the encoding is right for csv files)
+##CSV files:
 data = pd.read_csv("Training_allagree.csv",sep=",", header = None ,encoding = "ISO-8859-1")
 data = data.drop(index = 0)
 data = data.drop(data.columns[[0]],axis = 1)
 data.columns = ["text", "sentiment"]
 
 
-#Randomize the data
+#Randomize data
 data = data.reindex(np.random.permutation(data.index))
-
-#Plot the sentiment count
-#sns.countplot(x='airline_sentiment', data=df) not working yet
 
 
 #Determine the maximal length of a statement(number of words)
@@ -82,19 +79,21 @@ n, bins, patches = plt.hist(x=data["token_length"], bins='auto', color='#0504aa'
 plt.grid(axis='y', alpha=0.75)
 plt.xlabel('#Words per sentence')
 plt.ylabel('Frequency')
-#plt.title('Word frequency Histogram')
+plt.title('Word frequency Histogram')
 maxfreq = n.max()
-# Set a clean upper y-axis limit.
+#Set a clean upper y-axis limit.
 plt.ylim(ymax=np.ceil(maxfreq / 10) * 10 if maxfreq % 10 else maxfreq + 10)
+plt.show()
 
 
-#Clean the data(LSTM can handle unstructured data)
+
+#Clean data(LSTM can handle most unstructured data)
 data['text'] = data['text'].apply(lambda x: x.lower())
 data['text'] = data['text'].apply((lambda x: re.sub('[^a-zA-z\s]', '', x)))#0-9
 
 
 
-#Overview of each sentiment group in the training data( => unbalanced dataset negative count could be too low)
+#Overview of each sentiment group in the training data (unbalanced data)
 data.sentiment.value_counts()
 
 for idx, row in data.iterrows():
