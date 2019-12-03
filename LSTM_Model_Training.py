@@ -204,7 +204,7 @@ print(model.summary())
 Y_ints = [Y.argmax() for Y in y_train_emb]
 class_weights = {0: (1.3*1387)/303.,1: 1.,2: 1387/569.}
 filepath_b = "Classweights.hdf5"
-callback = [EarlyStopping(monitor='val_loss', patience=20, verbose = 1),ModelCheckpoint(filepath=filepath_b,
+callback = [EarlyStopping(monitor='val_loss', patience=10, verbose = 1),ModelCheckpoint(filepath=filepath_b,
                                                                                         save_best_only = True,
                                                                                         save_weights_only = False)]
 
@@ -229,7 +229,7 @@ Y_ints = [Y.argmax() for Y in y_train_emb]
 class_weights = {0: (1.3*1387)/303.,1: 1.,2: 1387/569.}
 
 filepath_c = "SMOTE.hdf5"
-callback = [EarlyStopping(monitor='val_loss', patience=20, verbose = 1),ModelCheckpoint(filepath=filepath_c,
+callback = [EarlyStopping(monitor='val_loss', patience=10, verbose = 1),ModelCheckpoint(filepath=filepath_c,
                                                                                         save_best_only = True,
                                                                                         save_weights_only = False)]
 from imblearn.over_sampling import SMOTE
@@ -290,7 +290,7 @@ filepath_d = "Word2Vec.hdf5"
 Y_ints = [Y.argmax() for Y in y_train_emb]
 class_weights = {0: (1.3*1387)/303.,1: 1.,2: 1387/569.}
 
-callback = [EarlyStopping(monitor='val_loss', patience=20, verbose = 1),ModelCheckpoint(filepath=filepath_d,
+callback = [EarlyStopping(monitor='val_loss', patience=10, verbose = 1),ModelCheckpoint(filepath=filepath_d,
                                                                                         save_best_only = True,
                                                                                         save_weights_only = False)]
 
