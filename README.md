@@ -2,15 +2,15 @@
 
 An LSTM architecture is presented to perform sentence-level sentiment analysis for blockchain news articles from Coindesk.com.
 
-1. Implementation of a dynamic Webscraper
+1. Implementation of a Dynamic Web scraper
 
-2. Extracting all relevant information (Content and timesteps) for each article and processing the data
+2. Extracting all relevant information (e.g. content and timestamps) for each article and pre-processing the data.
 
-3. LSTM model training
+3. LSTM Model training.
 
-4. Prediction of sentiment indices
+4. Prediction of sentiment indices.
 
-The training Data is confidential and can therefore not be published.
+The Training Data is confidential and can therefore not be published.
 
 
 All codes have been written under Python 3.6
